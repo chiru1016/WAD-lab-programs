@@ -2,34 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Profile - Book Store</title>
+  <title>Profile - Online Book Store</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="bg-light pb-5">
-  <header class="bg-white border-bottom py-3 mb-4 text-center">
-    <h1 class="h3 fw-bold text-primary">Online Book Store</h1>
+
+<body class="bg-light">
+
+  <!-- Header -->
+  <header class="bg-white border-bottom p-3 text-center">
+    <h2 class="text-primary">Online Book Store</h2>
+
     <nav class="nav justify-content-center">
-      <a class="nav-link px-2 text-dark" href="index.html">Home</a>
-      <a class="nav-link px-2 text-dark fw-bold" href="profile.html">Profile</a>
-      <a class="nav-link px-2 text-dark" href="catelog.html">Catalog</a>
-      <a class="nav-link px-2 text-dark" href="Contact.html">Contact</a>
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link active" href="profile.html">Profile</a>
+      <a class="nav-link" href="catalog.html">Catalog</a>
+      <a class="nav-link" href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <main class="container text-center">
-    <div class="card shadow-sm border-0 p-4 mx-auto" style="max-width: 400px;">
-      <div class="bg-secondary rounded-circle mx-auto mb-3" style="width: 80px; height: 80px;"></div>
-      <h2 class="h5">John Doe</h2>
-      <p class="text-muted small">john.doe@example.com</p>
-      <hr>
-      <div class="text-start small">
-        <p><strong>Orders:</strong> 12 Books</p>
-        <p><strong>Member Since:</strong> Jan 2026</p>
-      </div>
-      <button class="btn btn-sm btn-outline-danger mt-2">Logout</button>
+  <!-- Profile Info -->
+  <main class="container mt-4">
+    <h4>User Profile</h4>
+
+    <div class="card p-3">
+      <p><strong>Name:</strong> Your Name</p>
+      <p><strong>Email:</strong> your@email.com</p>
+      <p><strong>Phone:</strong> 9876543210</p>
+      <p><strong>Address:</strong> Your City</p>
     </div>
   </main>
 
-  <footer class="fixed-bottom bg-white border-top py-2 text-center text-secondary small">&copy; 2026 Online Book Store</footer>
+  <!-- Footer -->
+  <footer class="text-center p-2 bg-white border-top mt-5">
+    © 2026 Online Book Store
+  </footer>
+
 </body>
 </html>
