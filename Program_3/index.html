@@ -7,52 +7,59 @@
         body { background-color: lightblue; }
     </style>
 </head>
-<body>
-    <center>
-        <h4>Registration Form</h4>
-    </center>
 
-    <form id="registrationForm">
+<body>
+
+<div class="container mt-4" style="max-width: 500px;">
+    <h4 class="text-center mb-3">Registration Form</h4>
+
+    <form id="registrationForm" class="card p-3">
 
         <label>Name</label>
-        <input type="text" id="Name" class="form-control">
-        <br>
+        <input type="text" id="Name" class="form-control mb-2">
 
         <label>Email</label>
-        <input type="email" id="email" class="form-control">
-        <br>
+        <input type="email" id="email" class="form-control mb-2">
 
         <label>Mobile</label>
-        <input type="text" id="mobile" class="form-control">
-        <br>
+        <input type="text" id="mobile" class="form-control mb-2">
 
         <label>Blood Group</label>
-        <select id="bloodGroup" class="form-select">
+        <select id="bloodGroup" class="form-select mb-2">
+            <option value="">Select</option>
             <option>A+</option>
             <option>B+</option>
             <option>O+</option>
-            <option>P+</option>
+            <option>AB+</option>
         </select>
-        <br>
 
-        <label>Gender</label><br>
-        <input type="radio" name="gender" value="Male"> Male
-        <input type="radio" name="gender" value="Female"> Female
-        <br><br>
+        <label>Gender</label>
+        <div class="mb-2">
+            <input type="radio" name="gender" value="Male"> Male
+            <input type="radio" name="gender" value="Female"> Female
+        </div>
 
-        <label>Address</label>
-            <textarea id="address" class="form-control"></textarea>
-        <br>
+        <!-- Checkbox Section -->
+        <label>Interests</label>
+        <div class="mb-3">
+            <input type="checkbox" name="interest" value="Reading"> Reading<br>
+            <input type="checkbox" name="interest" value="Coding"> Coding<br>
+            <input type="checkbox" name="interest" value="Sports"> Sports<br>
+            <input type="checkbox" name="interest" value="Music"> Music
+        </div>
 
-        <center>
-            <button class="btn btn-primary">Submit</button>
-            <button class="btn btn-secondary">Reset</button>
-        </center>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-secondary">Reset</button>
+        </div>
 
     </form>
+</div>
 
 <script>
 document.getElementById('registrationForm').addEventListener('submit', function (e) {
+
+    e.preventDefault();
 
     const get = id => document.getElementById(id).value;
 
@@ -60,7 +67,11 @@ document.getElementById('registrationForm').addEventListener('submit', function 
     const email  = get('email');
     const mobile = get('mobile');
     const blood  = document.getElementById('bloodGroup').value;
-    const gender = document.querySelector('input[name="gender"]:checked');
+    const gender = document.querySelector('input[name="gender"]:checked')?.value;
+
+    const interests = Array.from(document.querySelectorAll('input[name="interest"]:checked'))
+                           .map(cb => cb.value)
+                           .join(", ");
 
     const patterns = {
         name: /^[A-Za-z\s'-]{2,50}$/,
@@ -68,29 +79,22 @@ document.getElementById('registrationForm').addEventListener('submit', function 
         mobile: /^[6-9]\d{9}$/
     };
 
-    if (!patterns.name.test(name)) {
-        return alert("Invalid Name");
-    }
+    if (!patterns.name.test(name)) return alert("Invalid Name");
+    if (!patterns.email.test(email)) return alert("Invalid Email");
+    if (!patterns.mobile.test(mobile)) return alert("Invalid Mobile");
+    if (!blood) return alert("Select Blood Group");
+    if (!gender) return alert("Select Gender");
 
-    if (!patterns.email.test(email)) {
-        return alert("Invalid Email");
-    }
+    alert(
+        "Name: " + name + "\n" +
+        "Email: " + email + "\n" +
+        "Mobile: " + mobile + "\n" +
+        "Blood Group: " + blood + "\n" +
+        "Gender: " + gender + "\n" +
+        "Interests: " + interests
+    );
 
-    if (!patterns.mobile.test(mobile)) {
-        return alert("Invalid Mobile");
-    }
-
-    if (!blood) {
-        return alert("Select Blood Group");
-    }
-
-    if (!gender) {
-        return alert("Select Gender");
-    }
-
-    alert("Registration Successful!");
 });
 </script>
-
 </body>
 </html>
