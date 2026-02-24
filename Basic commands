@@ -1,0 +1,38 @@
+Update:
+UPDATE table_name
+SET column1 = value1, column2 = value2, ...
+WHERE condition;
+
+ex:
+UPDATE Customers
+SET ContactName = 'Alfred Schmidt', City= 'Frankfurt'
+WHERE CustomerID = 1;
+
+Delete:
+DELETE FROM table_name WHERE condition;
+
+ex:
+DELETE FROM Customers WHERE CustomerName='Alfreds Futterkiste';
+
+Insert:
+INSERT INTO table_name (column1, column2, column3, ...)
+VALUES (value1, value2, value3, ...);
+
+ex:
+INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)
+VALUES ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway');
+
+Alter:
+ALTER TABLE table_name
+ADD column_name datatype;
+
+ex:
+ALTER TABLE Customers
+ADD Email varchar(255);
+
+ALTER TABLE Customers
+DROP COLUMN Email;
+
+ALTER TABLE table_name
+RENAME COLUMN old_name to new_name;
+
