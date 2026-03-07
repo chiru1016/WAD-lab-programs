@@ -13,7 +13,7 @@
 <div class="container mt-4" style="max-width: 500px;">
     <h4 class="text-center mb-3">Registration Form</h4>
 
-    <form id="registrationForm" class="card p-3">
+    <form class="card p-3">
 
         <label>Name</label>
         <input type="text" id="Name" class="form-control mb-2">
@@ -39,7 +39,6 @@
             <input type="radio" name="gender" value="Female"> Female
         </div>
 
-        <!-- Checkbox Section -->
         <label>Interests</label>
         <div class="mb-3">
             <input type="checkbox" name="interest" value="Reading"> Reading<br>
@@ -49,7 +48,7 @@
         </div>
 
         <div class="text-center">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="button" onclick="register()" class="btn btn-primary">Submit</button>
             <button type="reset" class="btn btn-secondary">Reset</button>
         </div>
 
@@ -57,44 +56,44 @@
 </div>
 
 <script>
-document.getElementById('registrationForm').addEventListener('submit', function (e) {
 
-    e.preventDefault();
+function register(){
 
-    const get = id => document.getElementById(id).value;
+    const name   = document.getElementById("Name").value;
+    const email  = document.getElementById("email").value;
+    const mobile = document.getElementById("mobile").value;
+    const blood  = document.getElementById("bloodGroup").value;
 
-    const name  = get('Name');
-    const email  = get('email');
-    const mobile = get('mobile');
-    const blood  = document.getElementById('bloodGroup').value;
-    const gender = document.querySelector('input[name="gender"]:checked')?.value;
+    const gender = document.querySelector('input[name="gender"]:checked');
+    const interests = document.querySelectorAll('input[name="interest"]:checked');
 
-    const interests = Array.from(document.querySelectorAll('input[name="interest"]:checked'))
-                           .map(cb => cb.value)
-                           .join(", ");
+    let interestList = "";
+    for(let i=0;i<interests.length;i++){
+        interestList += interests[i].value + " ";
+    }
 
-    const patterns = {
-        name: /^[A-Za-z\s'-]{2,50}$/,
-        email: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/,
-        mobile: /^[6-9]\d{9}$/
-    };
+    const namePattern = /^[A-Za-z\s]{2,50}$/;
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    const mobilePattern = /^[6-9]\d{9}$/;
 
-    if (!patterns.name.test(name)) return alert("Invalid Name");
-    if (!patterns.email.test(email)) return alert("Invalid Email");
-    if (!patterns.mobile.test(mobile)) return alert("Invalid Mobile");
-    if (!blood) return alert("Select Blood Group");
-    if (!gender) return alert("Select Gender");
+    if(!namePattern.test(name)){ alert("Invalid Name"); return; }
+    if(!emailPattern.test(email)){ alert("Invalid Email"); return; }
+    if(!mobilePattern.test(mobile)){ alert("Invalid Mobile"); return; }
+    if(!blood){ alert("Select Blood Group"); return; }
+    if(!gender){ alert("Select Gender"); return; }
 
     alert(
         "Name: " + name + "\n" +
         "Email: " + email + "\n" +
         "Mobile: " + mobile + "\n" +
         "Blood Group: " + blood + "\n" +
-        "Gender: " + gender + "\n" +
-        "Interests: " + interests
+        "Gender: " + gender.value + "\n" +
+        "Interests: " + interestList
     );
 
-});
+}
+
 </script>
+
 </body>
 </html>
