@@ -72,7 +72,7 @@ function register(){
         interestList += interests[i].value + " ";
     }
 
-    const namePattern = /^[A-Za-z\s]{2,50}$/;
+    let namePattern = /^[A-Za-z\s]{2,50}$/;
     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
     const mobilePattern = /^[6-9]\d{9}$/;
 
