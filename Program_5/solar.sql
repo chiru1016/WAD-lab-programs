@@ -110,7 +110,7 @@ Expected Output:
 Name Installation Type
 Value-1 Value-1
 Value-2 Value-2
-========================================================== */
+======================================================= */
 SELECT
     v.Name,
     i.Type,
