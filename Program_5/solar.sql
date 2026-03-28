@@ -169,7 +169,7 @@ Expected Output:
 Area Pv_type
 Value-1 Value-1
 Value-2 Value-2
-============================================================ */
+======================================================== */
 SELECT DISTINCT
     u.Area,
     p.PV_Type
