@@ -246,7 +246,7 @@ Expected Output:
 Installation Type Average installation charge
 Value-1 Value-1
 Value-1 Value-1
-============================================================ */
+=========================================================
 SELECT
     p.PV_Type,
     AVG(i.Installation_Charges) AS Average_Installation_Charge
