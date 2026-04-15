@@ -5,7 +5,7 @@ CREATE TABLE Solar_Panel (
     Capacity INT,
     Price INT,
     Warranty_Type INT
-
+);
 
 -- Create table Vendor to store distributor details like TIN, name, address and contact information.
 CREATE TABLE Vendor (
