@@ -6,7 +6,7 @@ CREATE TABLE DEPARTMENT (
     Mgr_start_date DATE
 );
 
- 2. Employee Table cre
+ 2. Employee Table
 CREATE TABLE EMPLOYEE (
     Ssn VARCHAR(5) PRIMARY KEY,
     Fname VARCHAR(15) NOT NULL,
